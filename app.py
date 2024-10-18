@@ -62,7 +62,7 @@ if prompt:
         with st.spinner("Generating response.."):
             coords = st.session_state["location"].get("coords")
             generated_response = shop_client.recommend_for_me(
-                prompt, coords['latitude'], coords['longitude'], 5000, mock=True)
+                prompt, coords['latitude'], coords['longitude'], 5000, mock=False)
 
             if "message" in generated_response:
                 st.write(generated_response["message"])
