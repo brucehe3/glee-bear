@@ -4,8 +4,11 @@ from lib.google_place import GooglePlaceClient
 from logic import ShopClient
 from streamlit_chat import message
 from streamlit_js_eval import get_geolocation
+from google.oauth2 import service_account
 
-google_client = GooglePlaceClient(st.secrets["google_credentials"])
+credentials = service_account.Credentials.from_service_account_info(st.secrets["google_credentials"])
+
+google_client = GooglePlaceClient(credentials)
 shop_client = ShopClient(google_client)
 
 st.header("Glee Bear🐻")

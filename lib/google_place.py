@@ -1,7 +1,6 @@
 from google.maps import places_v1
 from google.type import latlng_pb2
 from google.maps.places_v1.types import SearchNearbyRequest
-
 from .mock.data import shops
 
 
@@ -10,8 +9,8 @@ def combine_reviews(reviews):
 
 
 class GooglePlaceClient:
-    def __init__(self, google_credentials):
-        self.client = places_v1.PlacesClient(credentials=google_credentials)
+    def __init__(self, credentials):
+        self.client = places_v1.PlacesClient(credentials=credentials)
 
     def get_photo(self, name, max_width_px=500, max_height_px=500):
         """get photo from google map photos"""
