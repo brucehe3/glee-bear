@@ -1,7 +1,12 @@
+import os
 import streamlit as st
-from logic import recommend_for_me
+from lib.google_place import GooglePlaceClient
+from logic import ShopClient
 from streamlit_chat import message
 from streamlit_js_eval import get_geolocation
+
+google_client = GooglePlaceClient(st.secrets["google_credentials"])
+shop_client = ShopClient(google_client)
 
 st.header("GoGlee Bear")
 
@@ -52,7 +57,7 @@ if prompt:
     else:
         with st.spinner("Generating response.."):
             coords = st.session_state["location"].get("coords")
-            generated_response = recommend_for_me(
+            generated_response = shop_client.recommend_for_me(
                 prompt, coords['latitude'], coords['longitude'], 5000, mock=False)
 
             if "message" in generated_response:
