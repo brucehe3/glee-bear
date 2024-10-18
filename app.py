@@ -36,13 +36,14 @@ if not ("user_prompt_history" in st.session_state
 def shop_response(shops):
     response = []
     shop_html = ("<div style='position:relative; background-image:url({photo}); "
-                 "height:200px; width:240px; margin-bottom:10px;border-radius:20px;'>"
-                 "<div style='position: absolute; bottom:0; border-bottom-left-radius: 20px;"
-                 "border-bottom-right-radius: 20px; width:100%;"
+                 "height:180px; width:240px; margin-bottom:10px;'>"
+                 "<div style='position: absolute; bottom:0; width:100%;"
                  "background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6));'>"
-                 "<h3 style='margin:8px;'>{name}</h3>"
+                 "<h3 style='margin:8px;'>{name} </h3>"
                  "<p style='padding:4px 8px;font-size:14px'>{reason}</p>"
-                 "<p style='font-size:12px;padding:0 8px 8px 0; text-align:right'>{distance:.2f} km</p>"
+                 "<p style='font-size:12px;padding:0 8px 8px 8px; text-align:left'>{distance:.2f} km "
+                 "<a href='{google_map_uri}' target='_blank'>"
+                 "<img style='width:24px;vertical-align: middle' src='https://storage.googleapis.com/support-kms-prod/sQ6yr8wryadBQXSDmVu6IHdmNF37Xn8IIBcn' /></a></p>"
                  "</div>"
                  "</div>")
     for shop in shops:
@@ -61,7 +62,7 @@ if prompt:
         with st.spinner("Generating response.."):
             coords = st.session_state["location"].get("coords")
             generated_response = shop_client.recommend_for_me(
-                prompt, coords['latitude'], coords['longitude'], 5000, mock=False)
+                prompt, coords['latitude'], coords['longitude'], 5000, mock=True)
 
             if "message" in generated_response:
                 st.write(generated_response["message"])
