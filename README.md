@@ -23,8 +23,8 @@ LLM地理位置推荐应用旨在为用户提供一种智能化的商户推荐�
 1. **克隆仓库**
 
    ```bash
-   git clone https://github.com/yourusername/llm-geolocation-recommendation.git
-   cd llm-geolocation-recommendation
+   git clone https://github.com/brucehe3/glee-bear.git
+   cd blee-bear
    ```
 
 2. **安装依赖**
@@ -43,6 +43,7 @@ LLM地理位置推荐应用旨在为用户提供一种智能化的商户推荐�
 
    ```
    GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
+   OPENAI_API_KEY=your_openai_api_key_here
    ```
 
 4. **运行应用**
