@@ -8,7 +8,7 @@ from streamlit_js_eval import get_geolocation
 google_client = GooglePlaceClient(st.secrets["google_credentials"])
 shop_client = ShopClient(google_client)
 
-st.header("GoGlee Bear")
+st.header("Glee Bear🐻")
 
 if st.checkbox("Check my location"):
     location = get_geolocation()
