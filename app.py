@@ -37,7 +37,7 @@ def shop_response(shops):
     response = []
     shop_html = ("<div style='position:relative; background-image:url({photo}); "
                  "height:180px; width:240px; margin-bottom:10px;'>"
-                 "<div style='position: absolute; bottom:0; width:100%;"
+                 "<div style='position: absolute;z-index:99; bottom:0; color:white; width:100%;"
                  "background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6));'>"
                  "<h3 style='margin:8px;'>{name} </h3>"
                  "<p style='padding:4px 8px;font-size:14px'>{reason}</p>"
